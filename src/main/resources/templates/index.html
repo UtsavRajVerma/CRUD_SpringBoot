@@ -1,0 +1,142 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <title>Assignment 1</title>
+</head>
+<body>
+<br>
+<h4 align=center> REGISTRATION FORM </h4>
+<div class="container">
+    <form method="post" name="register" th:action="@{/add}"  th:onClick="return validate()" onsubmit="return false">
+<!--        onsubmit="return false"-->
+        <div class="form-group">
+            <div class="col-xs-2">
+                <label for="ex1">Name</label>
+                <input class="form-control" type="text"  name="name" required pattern="[A-Za-z]{3,26}"  title="Name should contain only english alphabets and length should be in the range 3 to 26">
+
+            </div>
+
+            <div class="col-xs-3">
+                <label for="ex2">Email</label>
+                <input class="form-control" type="text"  name="email" required pattern="^(.+)@(.+)"  title="Email should be of type eg:abc@gmail.com">
+            </div>
+            <div class="col-xs-4">
+                <label for="ex3">Mobile</label>
+                <input class="form-control" type="number" name="mobile" required pattern="^[0-9]{10}"  title="Mobile number should contain only 10 digits">
+            </div>
+            <br>
+            <div class="col-xs-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01" >State</label>
+                    </div>
+                    <select required class="custom-select" name="state" th:field="*{state}" >
+                        <option value="" >Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                </div>
+            </div>
+            Skills
+            <br>
+            <div class="col-xs-4">
+                <input type="checkbox" name="skills" value="Java" required> HTML</input> &nbsp;
+                <input type="checkbox" name="skills" value="JavaScript" > CSS </input>&nbsp;
+                <input type="checkbox" name="skills" value="Mysql" > Hibernate </input> &nbsp;
+                <input type="checkbox" name="skills" value="Springboot" > Python </input> &nbsp;
+                <input type="checkbox" name="skills" value="Java" > Java </input> &nbsp;
+                <input type="checkbox" name="skills" value="JavaScript" > JavaScript </input>&nbsp;
+                <input type="checkbox" name="skills" value="Mysql" > MySQL </input> &nbsp;
+                <input type="checkbox" name="skills" value="Springboot" > Springboot </input> &nbsp;
+            </div>
+            <br>
+            Gender
+            <div class="col-xs-2">
+                Male <input type="radio" name="gender" value="male"  required/> &nbsp;
+                Female <input type="radio" name="gender" value="female"  />  &nbsp;
+<!--                Prefer not to say<input type="radio" name="gender" value="prefer not to say" th:field="*{gender}" />  &nbsp;-->
+            </div>
+            <br>
+            <div class="col-xs-2">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1" >Upload Image</label>
+                    <input type="file" class="form-control-file" name="image" pattern=".jpg" title="please upload a jpg image">
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="id" th:field="*{id}">
+        <input id="sub" type="submit" class="btn btn-primary" th:onClick=Validate()>
+        <input type="reset" class="btn btn-primary">
+    </form>
+<!--    <input type="submit" class="btn btn-primary" th:onClick=Validate()>-->
+</div>
+<script>
+
+    $('#sub').click((e)=>{
+
+        let form_dta = {};
+        for (const value of $('form').serializeArray()) {
+            form_dta[value.name] = value.value;
+        }
+
+        console.log(form_dta);
+        let data = JSON.stringify(form_dta);
+        fetch('http://localhost:9191/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: data,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // window.location(http://localhost:9191/);
+                // location.href = 'http://localhost:9191/add';
+                // location.href = 'http://localhost:63342/SpringBoot_v2/templates/index.html';
+            })
+            .catch((err) => console.log(err));
+
+
+    });
+
+</script>
+</body>
+</html>
