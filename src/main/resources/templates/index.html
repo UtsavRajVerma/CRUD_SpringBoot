@@ -25,44 +25,44 @@
 
             let Ugender=document.getElementById("GENDERS").value;
             let gender_value;
-            if(document.getElementById("M").checked) gender_value=document.getElementById("M").value;
-            else gender_value=document.getElementById("F").value;
+                if(document.getElementById("M").checked) gender_value=document.getElementById("M").value;
+                else gender_value=document.getElementById("F").value;
             localStorage.setItem("Gender",gender_value);
 
             let Uskills=document.getElementById("SKILLS").value;
             let skills_value="";
-            if(document.getElementById("html").checked){
-                skills_value+=document.getElementById("java").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("css").checked){
-                skills_value+=document.getElementById("css").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("hibernate").checked){
-                skills_value=document.getElementById("hibernate").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("python").checked){
-                skills_value=document.getElementById("python").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("java").checked){
-                skills_value=document.getElementById("java").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("javascript").checked){
-                skills_value=document.getElementById("javascript").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("mysql").checked){
-                skills_value=document.getElementById("mysql").value;
-                skills_value+=", "
-            }
-            if(document.getElementById("springboot").checked){
-                skills_value=document.getElementById("springboot").value;
-                skills_value+=", "
-            }
+                if(document.getElementById("html").checked){
+                    skills_value+=document.getElementById("html").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("css").checked){
+                    skills_value+=document.getElementById("css").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("hibernate").checked){
+                    skills_value+=document.getElementById("hibernate").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("python").checked){
+                    skills_value+=document.getElementById("python").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("java").checked){
+                    skills_value+=document.getElementById("java").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("javascript").checked){
+                    skills_value+=document.getElementById("javascript").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("mysql").checked){
+                    skills_value+=document.getElementById("mysql").value;
+                    skills_value+=", "
+                }
+                if(document.getElementById("springboot").checked){
+                    skills_value+=document.getElementById("springboot").value;
+                    skills_value+=", "
+                }
             localStorage.setItem("Skills",skills_value);
 
             return false;
@@ -143,7 +143,7 @@
             Skills
             <br>
             <div class="col-xs-4" id="SKILLS">
-                <input type="checkbox" id="html" name="skills" value="HTML" required> HTML</input> &nbsp;
+                <input type="checkbox" id="html" name="skills" value="HTML" > HTML</input> &nbsp;
                 <input type="checkbox" id="css" name="skills" value="CSS" > CSS </input>&nbsp;
                 <input type="checkbox" id="hibernate" name="skills" value="Hibernate" > Hibernate </input> &nbsp;
                 <input type="checkbox" id="python" name="skills" value="Python" > Python </input> &nbsp;
