@@ -23,17 +23,53 @@
             let Ustate=document.getElementById("STATE").value;
             localStorage.setItem("State",Ustate);
 
-            let Ugender=document.getElementById("GENDER").value;
-            localStorage.setItem("Gender",Ugender);
+            let Ugender=document.getElementById("GENDERS").value;
+            let gender_value;
+            if(document.getElementById("M").checked) gender_value=document.getElementById("M").value;
+            else gender_value=document.getElementById("F").value;
+            localStorage.setItem("Gender",gender_value);
 
             let Uskills=document.getElementById("SKILLS").value;
-            localStorage.setItem("Skills",Uskills);
+            let skills_value="";
+            if(document.getElementById("html").checked){
+                skills_value+=document.getElementById("java").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("css").checked){
+                skills_value+=document.getElementById("css").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("hibernate").checked){
+                skills_value=document.getElementById("hibernate").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("python").checked){
+                skills_value=document.getElementById("python").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("java").checked){
+                skills_value=document.getElementById("java").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("javascript").checked){
+                skills_value=document.getElementById("javascript").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("mysql").checked){
+                skills_value=document.getElementById("mysql").value;
+                skills_value+=", "
+            }
+            if(document.getElementById("springboot").checked){
+                skills_value=document.getElementById("springboot").value;
+                skills_value+=", "
+            }
+            localStorage.setItem("Skills",skills_value);
 
             return false;
         }
     </script>
-
 </head>
+
 <body>
 <br>
 <h4 align=center> REGISTRATION FORM </h4>
@@ -107,21 +143,20 @@
             Skills
             <br>
             <div class="col-xs-4" id="SKILLS">
-                <input type="checkbox" name="skills" value="Java" required> HTML</input> &nbsp;
-                <input type="checkbox"  name="skills" value="JavaScript" > CSS </input>&nbsp;
-                <input type="checkbox" name="skills" value="Mysql" > Hibernate </input> &nbsp;
-                <input type="checkbox" name="skills" value="Springboot" > Python </input> &nbsp;
-                <input type="checkbox" name="skills" value="Java" > Java </input> &nbsp;
-                <input type="checkbox" name="skills" value="JavaScript" > JavaScript </input>&nbsp;
-                <input type="checkbox" name="skills" value="Mysql" > MySQL </input> &nbsp;
-                <input type="checkbox" name="skills" value="Springboot" > Springboot </input> &nbsp;
+                <input type="checkbox" id="html" name="skills" value="HTML" required> HTML</input> &nbsp;
+                <input type="checkbox" id="css" name="skills" value="CSS" > CSS </input>&nbsp;
+                <input type="checkbox" id="hibernate" name="skills" value="Hibernate" > Hibernate </input> &nbsp;
+                <input type="checkbox" id="python" name="skills" value="Python" > Python </input> &nbsp;
+                <input type="checkbox" id="java" name="skills" value="Java" > Java </input> &nbsp;
+                <input type="checkbox" id="javascript" name="skills" value="JavaScript" > JavaScript </input>&nbsp;
+                <input type="checkbox" id="mysql" name="skills" value="MySQL" > MySQL </input> &nbsp;
+                <input type="checkbox" id="springboot" name="skills" value="Springboot" > Springboot </input> &nbsp;
             </div>
             <br>
             Gender
-            <div class="col-xs-2" id="GENDER">
-                Male <input type="radio"  name="gender" value="male"  required/> &nbsp;
-                Female <input type="radio" name="gender" value="female"  />  &nbsp;
-<!--                Prefer not to say<input type="radio" name="gender" value="prefer not to say" th:field="*{gender}" />  &nbsp;-->
+            <div class="col-xs-2" id="GENDERS">
+                Male <input type="radio" id="M" name="gender" value="Male" /> &nbsp;
+                Female <input type="radio" id="F" name="gender" value="Female"  />
             </div>
             <br>
             <div class="col-xs-2">
@@ -130,7 +165,7 @@
                     <input type="file" class="form-control-file" name="image" pattern=".jpg" title="please upload a jpg image">
                 </div>
             </div>
-        </div>
+        </button>
         <input type="hidden" id="id" th:field="*{id}">
         <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
         <input id="sub" type="submit" class="btn btn-primary"  onclick="passValues()">
