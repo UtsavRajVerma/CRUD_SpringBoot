@@ -1,5 +1,4 @@
 <!Doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <meta charset="utf-8">
@@ -74,15 +73,11 @@
 <br>
 <h4 align=center> REGISTRATION FORM </h4>
 <div class="container">
-    <form method="post" name="register"  action="file2.html" th:onClick="return validate()">
-<!--        onsubmit="return false"-->
-<!--        action="@{/add}"-->
-<!--        th:action="@{/add}"-->
+    <form method="post" name="register"  action="file2.html">
         <div class="form-group">
             <div class="col-xs-2">
                 <label for="ex1">Name</label>
                 <input class="form-control" type="text" id="NAME" name="name" required pattern="[A-Za-z]{3,26}"  title="Name should contain only english alphabets and length should be in the range 3 to 26">
-
             </div>
 
             <div class="col-xs-3">
@@ -166,15 +161,13 @@
                 </div>
             </div>
         </button>
-        <input type="hidden" id="id" th:field="*{id}">
+        <input type="hidden" id="id">
         <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
         <input id="sub" type="submit" class="btn btn-primary"  onclick="passValues()">
-<!--            th:onClick=Validate()-->
         </a>
         <input type="reset" class="btn btn-primary">
+        </div>
     </form>
-<!--    <input type="submit" class="btn btn-primary" th:onClick=Validate()>-->
-</div>
 <script>
 
     $('#sub').click((e)=>{
@@ -193,8 +186,6 @@
         })
             .then((res) => res.json())
             .then((data) => {
-                // window.location(http://localhost:9191/);
-                // location.href = 'http://localhost:9191/add';
                  window.location.href = 'http://localhost:63342/SpringBoot_v2/templates/index.html';
             })
             .catch((err) => console.log(err));
