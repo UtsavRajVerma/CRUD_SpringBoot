@@ -33,6 +33,23 @@ public class FormController {
         return formService.saveForm(form);
     }
 
+    @PostMapping("/file2")
+    public String handleForm(@RequestParam("name") String userName,
+                             @RequestParam("email") String userMail,
+                             @RequestParam("mobile") String userMobile,
+                             @RequestParam("state") String userState,
+                             @RequestParam("gender") String userGender,
+                             @RequestParam("skills") String userSkills, Model model){
+
+        model.addAttribute("name",userName);
+        model.addAttribute("email",userMail);
+        model.addAttribute("mobile",userMobile);
+        model.addAttribute("state",userState);
+        model.addAttribute("gender",userGender);
+        model.addAttribute("skills",userSkills);
+        return "success";
+    }
+
     @GetMapping("/get")
     public List<Form> findAllForms(){
         return formService.getForms();

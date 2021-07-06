@@ -13,8 +13,10 @@
 <br>
 <h4 align=center> REGISTRATION FORM </h4>
 <div class="container">
-    <form method="post" name="register" th:action="@{/add}"  th:onClick="return validate()" onsubmit="return false">
+    <form method="post" name="register"  action="file2.html" th:onClick="return validate()">
 <!--        onsubmit="return false"-->
+<!--        action="@{/add}"-->
+<!--        th:action="@{/add}"-->
         <div class="form-group">
             <div class="col-xs-2">
                 <label for="ex1">Name</label>
@@ -28,7 +30,7 @@
             </div>
             <div class="col-xs-4">
                 <label for="ex3">Mobile</label>
-                <input class="form-control" type="number" name="mobile" required pattern="^[0-9]{10}"  title="Mobile number should contain only 10 digits">
+                <input class="form-control" type="number" name="mobile" min="6" required pattern="^[0-9]{10}"  title="Mobile number should contain only 10 digits">
             </div>
             <br>
             <div class="col-xs-4">
@@ -105,7 +107,9 @@
             </div>
         </div>
         <input type="hidden" id="id" th:field="*{id}">
+        <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
         <input id="sub" type="submit" class="btn btn-primary" th:onClick=Validate()>
+        </a>
         <input type="reset" class="btn btn-primary">
     </form>
 <!--    <input type="submit" class="btn btn-primary" th:onClick=Validate()>-->
@@ -130,7 +134,7 @@
             .then((data) => {
                 // window.location(http://localhost:9191/);
                 // location.href = 'http://localhost:9191/add';
-                // location.href = 'http://localhost:63342/SpringBoot_v2/templates/index.html';
+                 window.location.href = 'http://localhost:63342/SpringBoot_v2/templates/index.html';
             })
             .catch((err) => console.log(err));
 
