@@ -8,26 +8,42 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body>
-<div class="container" >
+<div class="container" object="form" >
 <!--  th:object="${form}"-->
 
   <br>
   <h5>Form generated!</h5><br>
   <br>
-<!--  <h6>Name:&nbsp; <span th:text=${form.name}></span></h6><br>-->
-<!--  <h6>Email:&nbsp; <span th:text=${form.email}></span></h6><br>-->
-<!--  <h6>Mobile:&nbsp; <span th:text=${form.phone}></span></h6><br>-->
-<!--  <h6>State: &nbsp;<span th:text=${form.state}></span></h6><br>-->
-<!--  <h6>Gender:&nbsp; <span th:text=${form.gender}></span></h6><br>-->
-<!--  <h6>Skills:&nbsp; <span th:text=${form.skills}></span></h6><br>-->
-<!--  <h6>Image:&nbsp; <span th:text=${form.image}></span></h6><br>-->
 
-  <h6>Name:&nbsp; <span th:text=${name}></span></h6><br>
-  <h6>Email:&nbsp; <span th:text=${email}></span></h6><br>
-  <h6>Mobile:&nbsp; <span th:text=${phone}></span></h6><br>
-  <h6>State: &nbsp;<span th:text=${state}></span></h6><br>
-  <h6>Gender:&nbsp; <span th:text=${gender}></span></h6><br>
-  <h6>Skills:&nbsp; <span th:text=${skills}></span></h6><br>
+  <h6>Name:&nbsp; <span id="NAME"></span></h6><br>
+  <script>
+    document.getElementById("NAME").innerHTML=localStorage.getItem("Name");
+  </script>
+
+  <h6>Email:&nbsp; <span id="EMAIL"></span></h6><br>
+  <script>
+    document.getElementById("EMAIL").innerHTML=localStorage.getItem("Email");
+  </script>
+
+  <h6>Mobile: <span id="MOBILE"></span></h6><br>
+  <script>
+    document.getElementById("MOBILE").innerHTML=localStorage.getItem("Mobile");
+  </script>
+
+  <h6>State: &nbsp;<span id="STATE"></span></h6><br>
+  <script>
+    document.getElementById("STATE").innerHTML=localStorage.getItem("State");
+  </script>
+
+  <h6>Gender:&nbsp; <span id="GENDER"></span></h6><br>
+  <script>
+    document.getElementById("GENDER").innerHTML=localStorage.getItem("Gender");
+  </script>
+
+  <h6>Skills:&nbsp; <span id="SKILLS"></span></h6><br>
+  <script>
+    document.getElementById("SKILLS").innerHTML=localStorage.getItem("Skills");
+  </script>
 
 
 <!--  <a th:href="@{/update/{id}(id=${form.id})}" class="btn btn-primary">-->

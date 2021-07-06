@@ -8,6 +8,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <title>Assignment 1</title>
+
+    <script>
+        function passValues(){
+            let Uname=document.getElementById("NAME").value;
+            localStorage.setItem("Name",Uname);
+
+            let Umail=document.getElementById("EMAIL").value;
+            localStorage.setItem("Email",Umail);
+
+            let Umobile=document.getElementById("MOBILE").value;
+            localStorage.setItem("Mobile",Umobile);
+
+            let Ustate=document.getElementById("STATE").value;
+            localStorage.setItem("State",Ustate);
+
+            let Ugender=document.getElementById("GENDER").value;
+            localStorage.setItem("Gender",Ugender);
+
+            let Uskills=document.getElementById("SKILLS").value;
+            localStorage.setItem("Skills",Uskills);
+
+            return false;
+        }
+    </script>
+
 </head>
 <body>
 <br>
@@ -20,17 +45,17 @@
         <div class="form-group">
             <div class="col-xs-2">
                 <label for="ex1">Name</label>
-                <input class="form-control" type="text"  name="name" required pattern="[A-Za-z]{3,26}"  title="Name should contain only english alphabets and length should be in the range 3 to 26">
+                <input class="form-control" type="text" id="NAME" name="name" required pattern="[A-Za-z]{3,26}"  title="Name should contain only english alphabets and length should be in the range 3 to 26">
 
             </div>
 
             <div class="col-xs-3">
                 <label for="ex2">Email</label>
-                <input class="form-control" type="text"  name="email" required pattern="^(.+)@(.+)"  title="Email should be of type eg:abc@gmail.com">
+                <input class="form-control" type="text" id="EMAIL" name="email" required pattern="^(.+)@(.+)"  title="Email should be of type eg:abc@gmail.com">
             </div>
             <div class="col-xs-4">
                 <label for="ex3">Mobile</label>
-                <input class="form-control" type="number" name="mobile" min="6" required pattern="^[0-9]{10}"  title="Mobile number should contain only 10 digits">
+                <input class="form-control" type="number" id="MOBILE" name="mobile" min="6" required pattern="^[0-9]{10}"  title="Mobile number should contain only 10 digits">
             </div>
             <br>
             <div class="col-xs-4">
@@ -38,7 +63,7 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01" >State</label>
                     </div>
-                    <select required class="custom-select" name="state" th:field="*{state}" >
+                    <select required class="custom-select" id="STATE" name="state" th:field="*{state}" >
                         <option value="" >Select State</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -81,9 +106,9 @@
             </div>
             Skills
             <br>
-            <div class="col-xs-4">
+            <div class="col-xs-4" id="SKILLS">
                 <input type="checkbox" name="skills" value="Java" required> HTML</input> &nbsp;
-                <input type="checkbox" name="skills" value="JavaScript" > CSS </input>&nbsp;
+                <input type="checkbox"  name="skills" value="JavaScript" > CSS </input>&nbsp;
                 <input type="checkbox" name="skills" value="Mysql" > Hibernate </input> &nbsp;
                 <input type="checkbox" name="skills" value="Springboot" > Python </input> &nbsp;
                 <input type="checkbox" name="skills" value="Java" > Java </input> &nbsp;
@@ -93,8 +118,8 @@
             </div>
             <br>
             Gender
-            <div class="col-xs-2">
-                Male <input type="radio" name="gender" value="male"  required/> &nbsp;
+            <div class="col-xs-2" id="GENDER">
+                Male <input type="radio"  name="gender" value="male"  required/> &nbsp;
                 Female <input type="radio" name="gender" value="female"  />  &nbsp;
 <!--                Prefer not to say<input type="radio" name="gender" value="prefer not to say" th:field="*{gender}" />  &nbsp;-->
             </div>
@@ -108,7 +133,8 @@
         </div>
         <input type="hidden" id="id" th:field="*{id}">
         <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
-        <input id="sub" type="submit" class="btn btn-primary" th:onClick=Validate()>
+        <input id="sub" type="submit" class="btn btn-primary"  onclick="passValues()">
+<!--            th:onClick=Validate()-->
         </a>
         <input type="reset" class="btn btn-primary">
     </form>
