@@ -46,10 +46,15 @@
     document.getElementById("SKILLS").innerHTML=localStorage.getItem("Skills");
   </script>
 
-  <h6><b>Profile Image:</b> <span id="IMAGE"></span></h6><br>
-  <script>
-    document.getElementById("IMAGE").innerHTML=localStorage.getItem("Image");
-  </script>
+  <div class="form-group">
+    <img th:src=""${form.image}" class="img-rounded">
+    <label class=""form-label for="image"><h6><b>Profile Image:</b> <span id="IMAGE"></span></h6><br></label>
+
+  </div>
+<!--  <h6><b>Profile Image:</b> <span id="IMAGE"></span></h6><br>-->
+<!--  <script>-->
+<!--    document.getElementById("IMAGE").innerHTML=localStorage.getItem("Image");-->
+<!--  </script>-->
 
 
   <a href="http://localhost:63342/SpringBoot_v2/templates/index.html" class="btn btn-primary">

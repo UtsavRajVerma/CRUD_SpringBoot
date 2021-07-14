@@ -78,6 +78,7 @@
 <h1 align=center> <u><b> REGISTRATION FORM </b></u></h1>
 <div class="container">
     <form method="post" action="file2.html" enctype="multipart/form-data" name="register" >
+        <form  action="/file2"  th:action="@{/addForm}" method="post" enctype="multipart/form-data">
 <!--        th:action="/file2"-->
 <!--        action="file2.html"-->
         <div class="form-group">
@@ -184,8 +185,52 @@
         </div>
     </form>
 
-<script>
 
+        <form  action="#"  th:action="@{/addUserDetails}" th:object="${userDetailsAndSkills}" method="post" enctype="multipart/form-data">
+            <input required type="hidden" name="oldEmail" th:value="${userDetailsAndSkills.email}"/>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input  required id="name" name="name" type="text"  class="form-control" th:field="*{name}" placeholder="Enter Name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input required id="email" name="email" type="email" th:field="*{email}"
+                       placeholder="Enter Email"/>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input  required id="phone" name="phone" type="text" th:field="*{phone}"
+                        placeholder="Enter Phone"/>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" />
+            </div>
+
+            <div class="form-group">
+                <label for="state">State</label>
+                <input required id="state" name="state" type="text" th:field="*{state}"
+                       placeholder="Enter State"/>
+            </div>
+
+            <div class="form-group">
+                <p>Gender</p>
+                <div class="form-check">
+
+                    <input required th:each="currgender: ${gendersList}" type="radio" th:field="*{gender}" th:value="${currgender.genderType}" th:text="${currgender.genderType}"/>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <p>Skills</p>
+                <select name="skills" class="form-select"  aria-label="Default select example"
+                        required multiple="multiple" th:field="*{skills}">
+                    <option th:each="currskill : ${skillsList}" th:value="${currskill}"  th:text="${currskill}"/>
+                </select>
+            </div>
+
+<script>
     $('#sub').click((e)=>{
 
         let form_dta = {};
@@ -207,6 +252,5 @@
             .catch((err) => console.log(err));
     });
 </script>
-
 </body>
 </html>
