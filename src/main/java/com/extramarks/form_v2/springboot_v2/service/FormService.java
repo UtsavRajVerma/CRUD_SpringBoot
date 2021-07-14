@@ -33,13 +33,7 @@ public class FormService {
         existingForm.setGender(form.getGender());
         existingForm.setSkills(form.getSkills());
         existingForm.setState(form.getState());
-        existingForm.setImage(form.getImage());
 
         return formRepository.save(existingForm);
-    }
-
-    public Form saveFormFile(Form form, String url){
-        form.setImage(url);
-        return form;
     }
 }

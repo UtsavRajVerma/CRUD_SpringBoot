@@ -1,10 +1,9 @@
 <!Doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8"></meta>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <title>Assignment 1</title>
@@ -65,9 +64,6 @@
                 }
             localStorage.setItem("Skills",skills_value);
 
-            let Uimage=document.getElementById("IMAGE").value;
-            localStorage.setItem("Image",Uimage);
-
             return false;
         }
     </script>
@@ -75,11 +71,9 @@
 
 <body>
 <br>
-<h1 align=center> <u><b> REGISTRATION FORM </b></u></h1>
+<h4 align=center> REGISTRATION FORM </h4>
 <div class="container">
-    <form method="post" action="file2.html" enctype="multipart/form-data" name="register" >
-<!--        th:action="/file2"-->
-<!--        action="file2.html"-->
+    <form method="post" name="register"  action="file2.html">
         <div class="form-group">
             <div class="col-xs-2">
                 <label for="ex1">Name</label>
@@ -90,12 +84,11 @@
                 <label for="ex2">Email</label>
                 <input class="form-control" type="text" id="EMAIL" name="email" required pattern="^(.+)@(.+)"  title="Email should be of type eg:abc@gmail.com">
             </div>
-
             <div class="col-xs-4">
                 <label for="ex3">Mobile</label>
                 <input class="form-control" type="text" id="MOBILE" name="mobile" min="6" required pattern="[6789][0-9]{9}"  title="Mobile number should contain only 10 digits">
+<!--                pattern="^[0-9]{10}"-->
             </div>
-
             <br>
             <div class="col-xs-4">
                 <div class="input-group mb-3">
@@ -155,35 +148,27 @@
                 <input type="checkbox" id="mysql" name="skills" value="MySQL" > MySQL </input> &nbsp;
                 <input type="checkbox" id="springboot" name="skills" value="Springboot" > Springboot </input> &nbsp;
             </div>
-
             <br>
             Gender
             <div class="col-xs-2" id="GENDERS">
                 Male <input type="radio" id="M" name="gender" value="Male" /> &nbsp;
                 Female <input type="radio" id="F" name="gender" value="Female"  />
             </div>
-
             <br>
             <div class="col-xs-2">
                 <div class="form-group">
-                        <label for="exampleFormControlFile1" >Upload Image</label>
-                        <input type="file"  class="form-control-file" required name="image" pattern=".jpg" title="Upload image.">
-<!--                    enctype="multipart/form-data"-->
-<!--                    class="profileImage"-->
+                    <label for="exampleFormControlFile1" >Upload Image</label>
+                    <input type="file" class="form-control-file" name="image" pattern=".jpg" title="please upload a jpg image">
                 </div>
             </div>
         </button>
-
-            <br>
-
-            <input type="hidden" id="id">
-            <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
-            <input id="sub" type="submit" class="btn btn-primary" onclick="passValues()">
-            </a>
-            <input type="reset" class="btn btn-primary">
+        <input type="hidden" id="id">
+        <a href="http://localhost:63342/SpringBoot_v2/templates/file2.html">
+        <input id="sub" type="submit" class="btn btn-primary"  onclick="passValues()">
+        </a>
+        <input type="reset" class="btn btn-primary">
         </div>
     </form>
-
 <script>
 
     $('#sub').click((e)=>{
@@ -205,8 +190,10 @@
                  window.location.href = 'http://localhost:63342/SpringBoot_v2/templates/index.html';
             })
             .catch((err) => console.log(err));
-    });
-</script>
 
+
+    });
+
+</script>
 </body>
 </html>
